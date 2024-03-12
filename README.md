@@ -13,4 +13,4 @@ Our results so far:
     ![Best results with Division Centroids](https://github.com/adgoldha/EEC-201-Final-Project/assets/146307216/5a23e600-f549-41a8-bde4-0e00401009d5)
 
 Notes of results so far:
-  Our results have better repeatability with centroid approach #2
+  1. Our results have better repeatability with centroid approach #2
