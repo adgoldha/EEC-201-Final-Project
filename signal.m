@@ -30,6 +30,17 @@ classdef signal
 			% reading in audio
 			[obj.y_in,obj.Fs_in] = audioread(sprintf('.\\GivenSpeech_Data\\Training_Data\\%s',obj.file_name));
 			% framing/overlap/windowing/fft
+
+			[check,dim] = size(obj.y_in);
+			y1 = zeros(check,1);
+			if dim > 1
+				for i = 1:check
+					y1(i,1) = mean(obj.y_in(i,:));
+				end
+			else
+				y1 = obj.y_in;
+			end
+			obj.y_in = y1;
 			
 			obj.MFCC = mfcc(obj.y_in, obj.Fs_in);
 
@@ -45,6 +56,8 @@ classdef signal
 			% reading audio and doing framing, overlap, windowing, and fft
 			% reading in audio
 			[obj.y_in,obj.Fs_in] = audioread(sprintf('.\\GivenSpeech_Data\\Test_Data\\%s',obj.file_name));
+			ind = find(obj.y_in ~= 0, 1, 'first');
+			obj.y_in = obj.y_in(ind:end);
 			% framing/overlap/windowing/fft
 			
 			obj.MFCC = mfcc(obj.y_in, obj.Fs_in);
