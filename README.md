@@ -8,4 +8,5 @@ To run our repo:
 
 Our results so far:
   1. Centroids initialized as a linear line
+    ![Best results with Centroids Linear](https://github.com/adgoldha/EEC-201-Final-Project/assets/146307216/681c50e9-272b-4861-a347-f115d782bab3)
   2. Centroids initialized based on division mean of input
