@@ -1,5 +1,4 @@
-# EEC-201-Final-Project
-Speech Recognition Project:
+# EEC-201-Final-Project: Speech Recognition
 
 To run our repo:
   1. Please clone or download the repo (datasets as well)
