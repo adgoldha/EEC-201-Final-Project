@@ -7,6 +7,7 @@ To run our repo:
   3. Output should be displayed in the terminal
 
 Our results so far:
-  1. Centroids initialized as a linear line
+  1. Centroids initialized as a linear line (7/8)
     ![Best results with Centroids Linear](https://github.com/adgoldha/EEC-201-Final-Project/assets/146307216/681c50e9-272b-4861-a347-f115d782bab3)
-  2. Centroids initialized based on division mean of input
+  2. Centroids initialized based on division mean of input (7/8)
+    ![Best results with Division Centroids](https://github.com/adgoldha/EEC-201-Final-Project/assets/146307216/5a23e600-f549-41a8-bde4-0e00401009d5)
