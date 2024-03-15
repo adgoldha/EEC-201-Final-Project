@@ -22,7 +22,7 @@ classdef signal
 
 		% function obj = fileIn(obj, name)
 		% 	obj.file_name = name;
-		% end
+		% end not needed
         
         % Get clusters of the signal
         function obj = processSignal(obj, num_centroids)
@@ -56,8 +56,6 @@ classdef signal
 			% reading audio and doing framing, overlap, windowing, and fft
 			% reading in audio
 			[obj.y_in,obj.Fs_in] = audioread(sprintf('.\\GivenSpeech_Data\\Test_Data\\%s',obj.file_name));
-			ind = find(obj.y_in ~= 0, 1, 'first');
-			obj.y_in = obj.y_in(ind:end);
 			% framing/overlap/windowing/fft
 			
 			obj.MFCC = mfcc(obj.y_in, obj.Fs_in);
