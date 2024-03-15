@@ -33,5 +33,5 @@ function d = disteu(x, y)
         end
     end
 
-    d = d.^0.5;
+    d = d.^0.5; % function end
 end
