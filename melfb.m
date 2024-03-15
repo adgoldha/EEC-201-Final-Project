@@ -44,5 +44,5 @@ function m = melfb(p, n, fs)
 	c = [b2:b4 1:b3] + 1;
 	v = 2 * [1-pm(b2:b4) pm(1:b3)];
 
-	m = sparse(r, c, v, p, 1+fn2);
+	m = sparse(r, c, v, p, 1+fn2); % function end
 end
