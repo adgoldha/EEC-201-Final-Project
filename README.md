@@ -2,8 +2,9 @@
 
 To run our repo:
   1. Please clone or download the repo (datasets as well)
-  2. Open the testing.m file and hit run in your environment
-  3. Output should be displayed in the terminal
+  2. Open the testing.m file (based on number of train files will need to change variable n & based on number of test files will need to change variable m)
+  3. Hit run in your environment
+  4. Output should be displayed in the terminal
 
 Our results so far:
   1. Centroids initialized as a linear line (8/8) (15 centroids used)
