@@ -4,5 +4,5 @@ function signals = training(n, num_centroids)
 		signals(i) = signal(file);
 		signals(i) = signals(i).processSignal(num_centroids);
 		% signals(i).plot_centroids(i);
-	end
+    end % end of project
 end
