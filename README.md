@@ -6,6 +6,4 @@ To run our repo:
   3. Hit run in your environment
   4. Output should be displayed in the terminal
 
-See report link below to see our results:
-  
-  To be added
+See report link here to see our results: To be added
