@@ -1,5 +1,10 @@
 function MFCC = mfcc(y_input, fs_input)
-	[S,F,T] = stft(y_input,fs_input,Window=hamming(256,'periodic'),OverlapLength=156,FFTLength=256);
+%     wo = 1000/(fs_input/2);  
+%     bw = wo/35;
+%     [b,a] = iirnotch(wo,bw);
+%     y_input = filter(b,a,y_input);
+
+	[S,F,T] = stft(y_input,fs_input,Window=hanning(256,'periodic'),OverlapLength=156,FFTLength=256);
 	% mel spectrogram of signal after above processing
 	% [Ss,Ff,Tt] = melSpectrogram(obj.y,obj.Fs,Window=hamming(256,'periodic'),OverlapLength=156,FFTLength=256,NumBands=20);
 	
@@ -23,7 +28,9 @@ function MFCC = mfcc(y_input, fs_input)
 		end
 	end
 	% converting to dB
+    some = some + 0.0001;
 	some = mag2db(abs(some));
+    some = some / 20;
 
 	% dct part
 	for i = 1:cols
@@ -34,6 +41,6 @@ function MFCC = mfcc(y_input, fs_input)
 			y = [y f(2:end)];
 		end
 	end
-
+    
 	MFCC = y;
 end
