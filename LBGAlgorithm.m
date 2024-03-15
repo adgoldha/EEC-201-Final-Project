@@ -6,22 +6,38 @@ function clusters = LBGAlgorithm(numCentroids, dimensions, frames, MFCC, eplison
     startCentroids = zeros(numCentroids,dimensions); % zeros(numCentroids,dimensions)
     j = 0;
     % for loop to give us all the initial centroids we need
-    % for i = 1:numCentroids
-    %     if i == 1
-    %         startCentroids(i,:) = mean(randomXY(i:lengthsplitup,:));
-    %     elseif i ~= numCentroids
-    %         startCentroids(i,:) = mean(randomXY(j:j+lengthsplitup-1,:));
-    %     else
-    %         startCentroids(i,:) = mean(randomXY(j:end,:));
-    %     end
-    %     j = i + lengthsplitup; % iterating j to make sure we mean all data with no repeats
-    % end
-    killme = (max(randomXY)-min(randomXY))/numCentroids;
+%     for i = 1:numCentroids % requires 20 centroids for 100% accuracy with repeatability
+%         if i == 1
+%             startCentroids(i,:) = mean(randomXY(i:lengthsplitup,:));
+%         elseif i ~= numCentroids
+%             startCentroids(i,:) = mean(randomXY(j:j+lengthsplitup-1,:));
+%         else
+%             startCentroids(i,:) = mean(randomXY(j:end,:));
+%         end
+%         j = i + lengthsplitup; % iterating j to make sure we mean all data with no repeats
+%     end
+    initial = (max(randomXY)-min(randomXY))/numCentroids;
     iter = min(randomXY);
-    for i = 1:numCentroids
+    for i = 1:numCentroids % requires 15 centroids for 100% accuracy with repeatability
         startCentroids(i,:) = iter;
-        iter = iter + killme;
+        iter = iter + initial;
     end
+%     for i = 1:numCentroids % tried combining the test
+%         if mod(i,2) ~= 0
+%             if i == 1
+%                 startCentroids(i,:) = mean(randomXY(i:lengthsplitup,:));
+%             elseif i ~= numCentroids
+%                  startCentroids(i,:) = mean(randomXY(j:j+lengthsplitup-1,:));
+%             else
+%                  startCentroids(i,:) = mean(randomXY(j:end,:));
+%             end
+%         else
+%             startCentroids(i,:) = iter;
+%             iter = iter + killme;
+%         end
+%         iter = iter + killme;
+%         j = i + lengthsplitup;
+%     end
     % end of getting all the centroids we need to start
     Dp = 100000000; % initializing previous distortion as a large number
     %scatter(randomPoints(1,:),randomPoints(2,:),'green','o') % plotting random points
