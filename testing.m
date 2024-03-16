@@ -1,15 +1,16 @@
 clear all;
-n = 47;
-num_centroids = 40;
+n = 47; % Number of training data - naming must match s#.wav
+num_centroids = 40; % Parameter to establish the number of centroids 
 
 signals = training(n, num_centroids);
 
-% visualizaiton
+% 2D Visualizaiton of the testing signals
+% Plots two sets of MFCC coefficients and centroids of a signal
 % for i = 1 : n
 %     signals(i).plot_centroids(i)
 % end
 
-m = 44;
+m = 44; % Number of testing files - naming must match s#.wav
 correct = 0;
 for i = 1:m
     % fprintf("Signal %d", i);
