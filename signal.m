@@ -28,7 +28,12 @@ classdef signal
         function obj = processSignal(obj, num_centroids)
 			% reading audio and doing framing, overlap, windowing, and fft
 			% reading in audio
-			[obj.y_in,obj.Fs_in] = audioread(sprintf('.\\GivenSpeech_Data\\Training_Data\\%s',obj.file_name));
+			try
+				[obj.y_in,obj.Fs_in] = audioread(sprintf('%s',obj.file_name));
+			catch ME
+				sprintf("File %s does not exist, skipping", obj.file_name);
+				return;
+			end
 			% framing/overlap/windowing/fft
 
 			[check,dim] = size(obj.y_in);
@@ -54,8 +59,10 @@ classdef signal
 		% Get clusters of the signal
         function obj = getMFCC(obj)
 			% reading audio and doing framing, overlap, windowing, and fft
-			% reading in audio
-			[obj.y_in,obj.Fs_in] = audioread(sprintf('.\\GivenSpeech_Data\\Test_Data\\%s',obj.file_name));
+			% reading in audio with try exepct in case there are missing files
+			[obj.y_in,obj.Fs_in] = audioread(sprintf('%s',obj.file_name));
+			ind = find(obj.y_in ~= 0, 1, 'first');
+			obj.y_in = obj.y_in(ind:end);
 			% framing/overlap/windowing/fft
 			
 			obj.MFCC = mfcc(obj.y_in, obj.Fs_in);
